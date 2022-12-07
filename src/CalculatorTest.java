@@ -41,8 +41,30 @@ public class CalculatorTest {
             assertThat(Calculator.calculation(2, 7, '*')).isEqualTo(14);
             assertThat(Calculator.calculation(100, 50, '/')).isEqualTo(2);
 
-            assertThatThrownBy(
-                    () -> Calculator.calculation(8, 4, '_')
-            ).isInstanceOf(IllegalStateException.class);
+            assertThatThrownBy(() ->
+                            Calculator.calculation(8, 4, '_')
+                              ).isInstanceOf(IllegalStateException.class);
+
+//            HW1.1: Придумайте и опишите (можно в псевдокоде) функцию извлечения корня и
+//            необходимые проверки для него используя граничные случаи
+//            assertThatThrownBy(() ->
+//                    Calculator.squareRootExtraction(0, 1, -1, 169)
+//            ).isInstanceOf(IllegalStateException.class);
+
+//            HW1.2: Как будет выглядеть проверка для случая деления на ноль? (с использованием AssertJ)
+//            assertThatThrownBy(() ->
+//                   Calculator.calculation(5, 0, '/')
+//            ).isInstanceOf(ArithmeticException.class);
+
+//            HW1.3: Сравните одну и ту же проверку с использованием условий, ассертов, AssertJ
+//            в каком случае стандартное сообщение об ошибке будет более информативным?
+
+//            if (0 != Calculator.calculation(2, 6, '+')) {
+//                throw new AssertionError("Ошибка в методе");
+//            }
+         //   assert 0 == Calculator.calculation(2, 6, '+');
+
+        //    assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(0);
+
         }
     }
