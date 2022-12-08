@@ -34,6 +34,7 @@ public class Calculator {
         //  0
         //  Отрицательные числа
 
+
             double t;
             double squareRoot = number / 2;
             do {
