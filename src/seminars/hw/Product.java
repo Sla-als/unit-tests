@@ -2,7 +2,7 @@ package seminars.hw;
 
 public class Product {
    private int count;
-   private int title;
+   private String title;
 
     public int getCount() {
         return count;
@@ -12,11 +12,11 @@ public class Product {
         this.count = count;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
