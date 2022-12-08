@@ -63,8 +63,9 @@ public class CalculatorTest {
 //                throw new AssertionError("Ошибка в методе");
 //            }
          //   assert 0 == Calculator.calculation(2, 6, '+');
-
         //    assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(0);
+
+
 
         }
     }
