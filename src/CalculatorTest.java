@@ -45,11 +45,15 @@ public class CalculatorTest {
                             Calculator.calculation(8, 4, '_')
                               ).isInstanceOf(IllegalStateException.class);
 
+
+            System.out.println(Calculator.calculation(2_147_483_647, 1 ,'+') ); // integer overflow
+            System.out.println(Calculator.squareRootExtraction(169));
+
 //            HW1.1: Придумайте и опишите (можно в псевдокоде) функцию извлечения корня и
 //            необходимые проверки для него используя граничные случаи
 //            assertThatThrownBy(() ->
-//                    Calculator.squareRootExtraction(0, 1, -1, 169)
-//            ).isInstanceOf(IllegalStateException.class);
+//                    Calculator.squareRootExtraction(0, 1, -1)
+//            ).isInstanceOf(SomeStateException.class);
 
 //            HW1.2: Как будет выглядеть проверка для случая деления на ноль? (с использованием AssertJ)
 //            assertThatThrownBy(() ->
@@ -64,8 +68,6 @@ public class CalculatorTest {
 //            }
          //   assert 0 == Calculator.calculation(2, 6, '+');
         //    assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(0);
-
-
 
         }
     }

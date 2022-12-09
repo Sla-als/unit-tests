@@ -1,4 +1,4 @@
-package seminars.hw;
+package seminars.first.hw;
 
 import java.util.List;
 

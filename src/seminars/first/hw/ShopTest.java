@@ -1,4 +1,4 @@
-package seminars.hw;
+package seminars.first.hw;
 
 public class ShopTest {
     /*

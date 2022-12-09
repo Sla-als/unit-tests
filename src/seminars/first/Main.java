@@ -1,4 +1,4 @@
-package seminars;
+package seminars.first;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*; // Импортируем классы библиотеки assertj
+import static org.assertj.core.api.Assertions.*; // Импортируем классы библиотеки assertJ
 
-public class FirstSeminar {
+public class Main {
 
     // Type 1
 //    public static void main(String[] args) {
@@ -36,18 +36,14 @@ public class FirstSeminar {
 //    }
 
     public static void main(String[] args) {
-        //        assertConditionA();
-        //        assertConditionB();
+        // assertConditionA();
+        // assertConditionB();
         // System.out.println(sum(2_147_483_647, 2));
         // happyNY();
-        //  expectedValue();
+        // expectedValue();
         // checkingShoppingCart();
-
-
-        String[] colors = {"...", "...",};
-        testingJavaCollectionsAssertJ(colors);
-
-
+        // String[] colors = {"...", "...",};
+        // testingJavaCollectionsAssertJ(colors);
     }
 
     // Практические задания
@@ -67,7 +63,7 @@ public class FirstSeminar {
     // 1.3
     // assert boolean_выражение : сообщение_об_ошибке;
     // Ariane V
-    // sum(2_147_483_647, 1) вернула "-2147483648"
+    // sum(2_147_483_647, 1) возвращает "-2147483648"
     public static int sum(int a, int b) {
         assert (Integer.MAX_VALUE - a >= b) : "Значение выражения вышло за пределы переменной";
         return a + b;
@@ -120,7 +116,7 @@ public class FirstSeminar {
     // ok - assertThat(actual).isEqualTo(expected);
     // not ok - assertThat("expected").isEqualTo("actual");
     public static void expectedValue() {
-        assertThat(6).isEqualTo(sum(2, 3));
+        assertThat(5).isEqualTo(sum(2, 3));
     }
 
     // 1.7
@@ -136,7 +132,7 @@ public class FirstSeminar {
                 .doesNotContain("red", "black");
     }
 
-    //1.8
+    // 1.8
     public void checkingHero() {
         List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
         Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);

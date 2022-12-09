@@ -1,4 +1,4 @@
-package seminars.hw;
+package seminars.first.hw;
 
 public class Product {
    private int count;
@@ -19,7 +19,4 @@ public class Product {
     public void setTitle(String title) {
         this.title = title;
     }
-
-
-
 }

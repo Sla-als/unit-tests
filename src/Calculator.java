@@ -1,10 +1,5 @@
 
 public class Calculator {
-    public static void main(String[] args) {
-        //  System.out.println(calculation(2_147_483_647, ,'+') );
-        System.out.println(squareRootExtraction(0));
-    }
-
     public static int calculation(int firstOperand, int secondOperand, char operator) {
         int result;
 
@@ -33,10 +28,10 @@ public class Calculator {
 
     public static double squareRootExtraction(double number) {
 
-        // Граничные случаи:
         //  0
         //  Отрицательные числа
-
+        //  Дробные значения корней
+        //  Целые
 
         double t;
         double squareRoot = number / 2;
@@ -55,6 +50,4 @@ public class Calculator {
         // discountAmount - размер скидки
         return 0; // Метод должен возвращать сумму покупки со скидкой
     }
-
 }
-
