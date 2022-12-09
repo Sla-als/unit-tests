@@ -44,6 +44,11 @@ public class Main {
         // checkingShoppingCart();
         // String[] colors = {"...", "...",};
         // testingJavaCollectionsAssertJ(colors);
+
+
+       // List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
+       // Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
+       // checkingCreationOfHero(emmett);
     }
 
     // Практические задания
@@ -133,20 +138,20 @@ public class Main {
     }
 
     // 1.8
-    public void checkingHero() {
-        List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
-        Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
+    public static void checkingHero() {
+        // List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
+        // Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
 
         /*
         1. Проверить, что герой создался с именем Emmett
         2. Проверить, что значение прочности брони героя равно 50
         3. Проверить, что у героя оружие типа sword
-        4. Проверить содержимое инвентаря героя (размер 3, содержимое "Bow", "Axe", "Gold", порядок не важен)
+        4. Проверить содержимое инвентаря героя (не пустой, размер 3, содержимое "Bow", "Axe", "Gold", порядок не важен)
         5. Проверить, что герой человек (свойство true)
         */
     }
 
-    class Hero {
+   static class Hero {
         private String name;
         private int armorStrength;
         private String weapon;
@@ -201,4 +206,14 @@ public class Main {
             isHuman = human;
         }
     }
+    public static void checkingCreationOfHero(Hero hero){
+        assertThat(hero.getName()).isEqualTo("Emmett");
+        assertThat(hero.armorStrength).isEqualTo(50);
+        assertThat(hero.getWeapon()).isEqualTo("sword");
+        assertThat(hero.getBag())
+                .isNotEmpty()
+                .hasSize(3)
+                .contains("Bow", "Axe", "Gold");
+    }
+
 }
