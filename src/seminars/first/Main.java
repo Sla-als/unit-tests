@@ -11,12 +11,12 @@ import static org.assertj.core.api.Assertions.*; // Импортируем кл�
 
 public class Main {
 
-    // Type 1
+    // Типы ошибок. Синтаксические
 //    public static void main(String[] args) {
-//        System.out.println("Hello world!");
+//        System.out.println("Hello world!")
 //    }
 
-    // Type 2
+    // Типы ошибок. ?
 //    public static void main(String[] args) {
 //        compareNumbers(2, 2); // Вызывается метод сравнения двух чисел
 //    }
@@ -29,29 +29,35 @@ public class Main {
 //        }
 //    }
 
-    // Type 3
-//    public static void main(String[] args) {
-//        int a = 10, b = 0;
-//        System.out.printf("Result: %d", a / b);
-//    }
+    // Типы ошибок. ?
+//  public static void main(String[] args) {
+//      int a = 10, b = 0;
+//      System.out.printf("Result: %d", a / b);
+//  }
 
     public static void main(String[] args) {
         // assertConditionA();
+
         // assertConditionB();
+
         // System.out.println(sum(2_147_483_647, 2));
+
         // happyNY();
+
         // expectedValue();
+
         // checkingShoppingCart();
+
         // String[] colors = {"...", "...",};
+
         // testingJavaCollectionsAssertJ(colors);
 
-
-       // List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
-       // Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
-       // checkingCreationOfHero(emmett);
+        // List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
+        // Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
+        // checkingCreationOfHero(emmett);
     }
 
-    // Практические задания
+    //                  Практические задания:
     // 1.1
     public static void assertConditionA() {
         String[] weekends = {"Суббота", "Воскресенье"};
@@ -67,7 +73,7 @@ public class Main {
 
     // 1.3
     // assert boolean_выражение : сообщение_об_ошибке;
-    // Ariane V
+    // Ariane V - https://habr.com/ru/company/pvs-studio/blog/306748/
     // sum(2_147_483_647, 1) возвращает "-2147483648"
     public static int sum(int a, int b) {
         assert (Integer.MAX_VALUE - a >= b) : "Значение выражения вышло за пределы переменной";
@@ -76,7 +82,7 @@ public class Main {
 
     // 1.4
     // 08/12/2022 06:19:41
-    // windows
+    // windows fail - https://habr.com/ru/company/pvs-studio/blog/698404/
     public static void happyNY() {
         Calendar calendar = Calendar.getInstance();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -117,7 +123,7 @@ public class Main {
     }
 
     // 1.6
-    // AssertJ
+    //   AssertJ
     // ok - assertThat(actual).isEqualTo(expected);
     // not ok - assertThat("expected").isEqualTo("actual");
     public static void expectedValue() {
@@ -139,6 +145,7 @@ public class Main {
 
     // 1.8
     public static void checkingHero() {
+
         // List<String> heroBag = Arrays.asList("Bow", "Axe", "Gold");
         // Hero emmett = new Hero("Emmett", 50, "sword", heroBag, true);
 
@@ -151,7 +158,8 @@ public class Main {
         */
     }
 
-   static class Hero {
+    // Черный ящик
+    static class Hero {
         private String name;
         private int armorStrength;
         private String weapon;
@@ -206,14 +214,4 @@ public class Main {
             isHuman = human;
         }
     }
-    public static void checkingCreationOfHero(Hero hero){
-        assertThat(hero.getName()).isEqualTo("Emmett");
-        assertThat(hero.armorStrength).isEqualTo(50);
-        assertThat(hero.getWeapon()).isEqualTo("sword");
-        assertThat(hero.getBag())
-                .isNotEmpty()
-                .hasSize(3)
-                .contains("Bow", "Axe", "Gold");
-    }
-
 }

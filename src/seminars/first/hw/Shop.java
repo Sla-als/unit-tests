@@ -5,6 +5,7 @@ import java.util.List;
 public class Shop {
     private List<Product> products;
 
+    // Геттеры, сеттеры:
     public List<Product> getProducts() {
         return products;
     }

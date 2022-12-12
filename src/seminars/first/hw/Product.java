@@ -1,15 +1,16 @@
 package seminars.first.hw;
 
 public class Product {
-   private int count;
-   private String title;
+    private int cost; // Стоимость продукта
+    private String title; // Название
 
-    public int getCount() {
-        return count;
+    // Геттеры, сеттеры:
+    public int getCost() {
+        return cost;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public String getTitle() {

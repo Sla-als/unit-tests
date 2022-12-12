@@ -26,6 +26,8 @@ public class Calculator {
         return result;
     }
 
+    // HW1.1: Придумайте и опишите (можно в псевдокоде) функцию извлечения корня и
+    // необходимые проверки для него используя граничные случаи
     public static double squareRootExtraction(double number) {
 
         //  0
@@ -42,9 +44,11 @@ public class Calculator {
         while ((t - squareRoot) != 0);
         return squareRoot;
 
-        // return Math.sqrt(number);
+        // или просто return Math.sqrt(number);
     }
 
+    // Нужно написать в калькуляторе метод вычисления суммы покупки со скидкой и проверить его, используя AssertJ
+    // Примерная сигнатура и тело метода:
     public static double calculatingDiscount(double purchaseAmount, int discountAmount) {
         // purchaseAmount - сумма покупки
         // discountAmount - размер скидки
