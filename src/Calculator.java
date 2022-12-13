@@ -107,4 +107,16 @@ public class Calculator {
 
         return discountedAmount; // Метод должен возвращать сумму покупки со скидкой
     }
+
+    //HW2.3L: Добавьте функцию возведения в степень в калькулятор и протестируйте
+    public static int pow(int value, int powValue) {
+        int result = 1;
+
+        for (int a = 1; a <= powValue; a++) {
+            if (a == 0) return 1;
+            result = result * value;
+
+        }
+        return result;
+    }
 }
