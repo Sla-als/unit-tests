@@ -2,12 +2,16 @@ import java.util.Scanner;
 
 public class Calculator {
     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int firstOperand = getOperand();
-        int secondOperand = getOperand();
-        char operator = getOperator();
-        int result = calculation(firstOperand, secondOperand, operator);
-        System.out.println("Operation result is: " + result);
+//        int firstOperand = getOperand();
+//        int secondOperand = getOperand();
+//        char operator = getOperator();
+//        int result = calculation(firstOperand, secondOperand, operator);
+//        System.out.println("Operation result is: " + result);
+
+//        System.out.println(calculatingDiscount(-100, 25));
+
     }
 
     public static char getOperator() {
@@ -85,6 +89,22 @@ public class Calculator {
     public static double calculatingDiscount(double purchaseAmount, int discountAmount) {
         // purchaseAmount - сумма покупки
         // discountAmount - размер скидки
-        return 0; // Метод должен возвращать сумму покупки со скидкой
+
+        double discountedAmount = 0; // Сумма со скидкой (первоначальная сумма - скидка%)
+
+        if (purchaseAmount >= 0) {
+
+            if (discountAmount >= 0 && discountAmount <= 100) {
+                discountedAmount = purchaseAmount - (purchaseAmount * discountAmount) / 100;
+            } else {
+                throw new ArithmeticException("Скидка должна быть в диапазоне от 0 до 100%");
+            }
+
+        } else {
+            // Сумма покупки не может быть отрицательной
+            throw new ArithmeticException("Сумма покупки не может быть отрицательной");
+        }
+
+        return discountedAmount; // Метод должен возвращать сумму покупки со скидкой
     }
 }
