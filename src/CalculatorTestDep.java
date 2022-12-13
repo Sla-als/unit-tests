@@ -1,13 +1,7 @@
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CalculatorTest {
+public class CalculatorTestDep {
 
     public static void main(String[] args) {
         // Проверка базового функционала с целыми числами:
