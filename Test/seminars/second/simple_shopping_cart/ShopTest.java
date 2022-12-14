@@ -1,6 +1,8 @@
 package seminars.second.simple_shopping_cart;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -15,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class ShopTest {
 
     // Создаем набор продуктов для магазина:
-    //@BeforeEach
     public static List<Product> getStoreItems() {
         List<Product> products = new ArrayList<>();
 
@@ -34,8 +35,16 @@ class ShopTest {
         // products.add(product);
         return products;
     }
-
     private ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+ // private Shop shop;
+ // private Cart cart;
+ //  @BeforeEach
+ //  void setup() {
+ //      shop = new Shop(getStoreItems());
+ //      cart = new Cart(shop);
+ //  }
+
 
     // TODO: Убрать в SHOP или под аннотацию
 
@@ -209,18 +218,19 @@ class ShopTest {
      * Пользователь вводит неверный номер продукта
      * <br><b>Ожидаемый результат:</b>
      * Исключение типа NoSuchFieldError и сообщение Не найден продукт с id
-     *
-     * @ValueSource(ints = { 1, 2, 3 })
+     *  *Сделать тест параметризованным
      */
-    @Test
-    void incorrectProductSelectionCausesException() {
+    //@Test
+    @ParameterizedTest
+    @ValueSource(ints = {-100, 100})
+    void incorrectProductSelectionCausesException(int i) {
 
         // Сначала показать пример в CalculatorTest - expectedIllegalStateExpressionToo - 117
 
         // Arrange
         Shop shop = new Shop(getStoreItems());
         Cart cart = new Cart(shop);
-        int id = 100;
+        int id = i;
         // Act
         NoSuchFieldError exception = assertThrows(NoSuchFieldError.class, () -> {
             cart.addProductToCartByID(id);

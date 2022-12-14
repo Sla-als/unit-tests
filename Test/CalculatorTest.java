@@ -1,5 +1,7 @@
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -113,15 +115,17 @@ public class CalculatorTest {
                 .isInstanceOf(IllegalStateException.class);
     }
 
-    @Test
-    void expectedIllegalStateExpressionToo() {
+    // <-------JUnit-Jupiter-Params
+    @ParameterizedTest
+    @ValueSource(chars = { '&', '#', '=' })
+    void expectedIllegalStateExpressionToo(char i) {
         // Arrange
         Calculator calculator = new Calculator();
-        char o = '_';
+        char o = i;
 
         // Act
         IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
-            Calculator.calculation(8, 4, '_');
+            calculator.calculation(8, 4, o);
         });
 
         // Assert
