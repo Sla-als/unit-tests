@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
@@ -85,26 +87,49 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertThat(calculator.calculation(2, 6, '+')).isEqualTo(8);
     }
+
     @Test
     void subtractionExpression() {
         Calculator calculator = new Calculator();
-        assertThat(Calculator.calculation(2,2,'-')).isEqualTo(0);
+        assertThat(Calculator.calculation(2, 2, '-')).isEqualTo(0);
     }
+
     @Test
     void multiplicationExpression() {
         Calculator calculator = new Calculator();
-        assertThat(Calculator.calculation(2,7,'*')).isEqualTo(14);
+        assertThat(Calculator.calculation(2, 7, '*')).isEqualTo(14);
     }
+
     @Test
     void divisionExpression() {
         Calculator calculator = new Calculator();
-        assertThat(Calculator.calculation(100,50,'/')).isEqualTo(2);
+        assertThat(Calculator.calculation(100, 50, '/')).isEqualTo(2);
     }
+
     @Test
     void expectedIllegalStateExpression() {
         Calculator calculator = new Calculator();
-        assertThatThrownBy(() -> Calculator.calculation(8,4,'_'))
+        assertThatThrownBy(() -> Calculator.calculation(8, 4, '_'))
                 .isInstanceOf(IllegalStateException.class);
+    }
+
+    @Test
+    void expectedIllegalStateExpressionToo() {
+        // Arrange
+        Calculator calculator = new Calculator();
+        char o = '_';
+
+        // Act
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
+            Calculator.calculation(8, 4, '_');
+        });
+
+        // Assert
+        String expectedMessage = "Unexpected value operator: " + o;
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+
     }
 
     @Test

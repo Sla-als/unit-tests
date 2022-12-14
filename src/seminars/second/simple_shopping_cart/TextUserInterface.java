@@ -3,21 +3,27 @@ package seminars.second.simple_shopping_cart;
 import java.util.List;
 import java.util.Scanner;
 
-public class UI {
-    Cart cart = new Cart();
+public class TextUserInterface {
+    Shop shop;
+    Cart cart;
+
     private int userChoice = 0;
 
-    public UI() {
+    public TextUserInterface(Shop shop) {
+        this.shop = shop;
+        cart = new Cart(shop);
         menu();
     }
 
     public void startScreen() {
+        System.out.println("Выберите одно из действий:");
         System.out.println("1. Показать список доступных продуктов");
         System.out.println("2. Перейти в корзину");
         System.out.println("0. Выход");
     }
 
     public void storeProductsMenu() {
+        System.out.println("Выберите одно из действий:");
         System.out.println("1. Добавить в корзину");
         System.out.println("2. Удалить из корзины");
         System.out.println("0. Выход");
@@ -56,6 +62,7 @@ public class UI {
                 break;
             case 2:
                 removeProductFromCart();
+                showCart();
                 break;
             default:
 
@@ -70,20 +77,19 @@ public class UI {
     }
 
     private void displayStoreProducts() {
-        List<Product> products = new Products().getProducts();
+        List<Product> products = shop.getProductsShop();
+        String format = "%1$-3s| %2$-20s| %3$-9s| %4$-3s\n"; // Ширина строк
+        System.out.format(format, "ID", "Название", "Цена, р.", "Кол-во в магазине, шт.");
         for (Product prod : products) {
-            System.out.println(
-                    prod.getPid() + " - " +
-                            prod.getName() + " " +
-                            "| " + prod.getPrice() + "р. " +
-                            "| " + prod.getStock() + "шт. "
-            );
+            System.out.format(format, prod.getId(), prod.getName(), prod.getPrice(), prod.getQuantity());
         }
+        System.out.println();
     }
 
     private void addProductToCart() {
-        int pid = getUserInput();
-        cart.addProductToCartByPID(pid);
+        System.out.println("Введите ID продукта, который хотите добавить в корзину:");
+        int id = getUserInput();
+        cart.addProductToCartByID(id);
     }
 
     private void showCart() {
@@ -91,7 +97,8 @@ public class UI {
     }
 
     private void removeProductFromCart() {
-        int pid = getUserInput();
-        cart.removeProductByPID(pid);
+        System.out.println("Введите ID продукта, который хотите удалить:");
+        int id = getUserInput();
+        cart.removeProductByID(id);
     }
 }

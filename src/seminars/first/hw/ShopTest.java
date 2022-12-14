@@ -21,7 +21,7 @@ public class ShopTest {
         assertThat(testShop.getProducts()).hasSize(4);
 
         // Проверить, что магазин возвращает верный самый дорогой продукт getMostExpensiveProduct
-        assertThat(testShop.getMostExpensiveProduct()).isEqualTo(testShop.getProducts().get(3));
+        assertThat(testShop.getMostExpensiveProduct().getTitle()).isEqualTo(getTestListProducts().get(3).getTitle());
 
         // Проверить, что магазин возвращает верный отсортированный по цене список продуктов
         assertThat(testShop.getSortedListProducts().get(0).getCost()).isEqualTo(100);
@@ -47,8 +47,6 @@ public class ShopTest {
 //        for (Product product : testShop.getSortedListProducts()) {
 //            System.out.println(product.getTitle() + " - " + product.getCost());
 //        }
-
-
 
     }
 

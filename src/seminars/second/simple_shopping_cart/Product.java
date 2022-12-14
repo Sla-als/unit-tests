@@ -3,76 +3,67 @@ package seminars.second.simple_shopping_cart;
 import java.util.Objects;
 
 public class Product {
-    private Integer pid;
-    private String name;
-    private Double price;
-    private Integer stock;
+    private Integer id;    // У продукта есть порядковый номер
+    private String name;   // У продукта есть порядковый имя
+    private Double price;  // У продукта есть цена
+    private Integer quantity; // У продукта есть переменная, которая хранит его количество в магазине
 
-    public Product () {
-    }
-
-    public Product (Integer pid, String name, Double price, Integer stock) {
-        this.pid = pid;
+    // При создании продукта мы должны указать все, объявленные выше, поля
+    public Product(Integer id, String name, Double price, Integer quantity) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.stock = stock;
+        this.quantity = quantity;
     }
-    /**
-     * @return the name
-     */
+
+    public Product() {
+
+    }
+
+    // Геттеры для всех полей (методы для получения значений полей):
+    public Integer getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the price
-     */
     public Double getPrice() {
         return price;
     }
 
-    /**
-     * @param price the price to set
-     */
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+
+    // Cеттеры для всех полей (методы для установки значений полей):
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setPrice(Double price) {
         this.price = price;
     }
 
-    /**
-     * @return the stock
-     */
-    public Integer getStock() {
-        return stock;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    /**
-     * @param stock the stock to set
-     */
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
 
-    /**
-     * @return the pid
-     */
-    public Integer getPid() {
-        return pid;
-    }
-
+    // Служебные методы для сравнения продуктов между собой
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.pid);
+        hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + Objects.hashCode(this.price);
-        hash = 29 * hash + Objects.hashCode(this.stock);
+        hash = 29 * hash + Objects.hashCode(this.quantity);
         return hash;
     }
 
@@ -91,22 +82,12 @@ public class Product {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.pid, other.pid)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.price, other.price)) {
             return false;
         }
-        if (!Objects.equals(this.stock, other.stock)) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * @param pid the pid to set
-     */
-    public void setPid(Integer pid) {
-        this.pid = pid;
+        return Objects.equals(this.quantity, other.quantity);
     }
 }
