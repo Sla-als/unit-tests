@@ -270,16 +270,27 @@ class ShopTest {
      * 2.9. Нужно восстановить тест
      *
      */
-    //  boolean Сломанный-Тест() {
-        //      // Assert (Проверка утверждения)
-        //      assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
-        //      // Act (Выполнение)
-        //      cart.addProductToCartByID(2); // 250
-        //      cart.addProductToCartByID(2); // 250
-        //      // Arrange (Подготовка)
-        //      Shop shop = new Shop(getStoreItems());
-        //      Cart cart = new Cart(shop);
-        //  }
+    // boolean Сломанный-Тест() {
+        //          // Assert (Проверка утверждения)
+        //          assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
+        //          // Act (Выполнение)
+        //          cart.addProductToCartByID(2); // 250
+        //          cart.addProductToCartByID(2); // 250
+        //          // Arrange (Подготовка)
+        //          Shop shop = new Shop(getStoreItems());
+        //          Cart cart = new Cart(shop);
+        //      }
+         @Test
+         void testSUM() {
+             // Arrange (Подготовка)
+             Shop shop = new Shop(getStoreItems());
+             Cart cart = new Cart(shop);
+             // Act (Выполнение)
+             cart.addProductToCartByID(2); // 250
+             cart.addProductToCartByID(2); // 250
+             // Assert (Проверка утверждения)
+             assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
+         }
 
     /**
      * 2.10. Нужно изменить тест по следующим критериям:
