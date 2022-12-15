@@ -35,15 +35,16 @@ class ShopTest {
         // products.add(product);
         return products;
     }
+
     private ByteArrayOutputStream output = new ByteArrayOutputStream();
 
- // private Shop shop;
- // private Cart cart;
- //  @BeforeEach
- //  void setup() {
- //      shop = new Shop(getStoreItems());
- //      cart = new Cart(shop);
- //  }
+    // private Shop shop;
+    // private Cart cart;
+    //  @BeforeEach
+    //  void setup() {
+    //      shop = new Shop(getStoreItems());
+    //      cart = new Cart(shop);
+    //  }
 
 
 /*
@@ -215,8 +216,8 @@ class ShopTest {
      * 2.7. Нужно написать юнит-тест для проверки следующей <b>ситуации</b>:
      * Пользователь вводит неверный номер продукта
      * <br><b>Ожидаемый результат:</b>
-     * Исключение типа NoSuchFieldError и сообщение Не найден продукт с id
-     *  *Сделать тест параметризованным
+     * Исключение типа RuntimeException и сообщение Не найден продукт с id
+     * *Сделать тест параметризованным
      */
     //@Test
     @ParameterizedTest
@@ -230,7 +231,7 @@ class ShopTest {
         Cart cart = new Cart(shop);
         int id = i;
         // Act
-        NoSuchFieldError exception = assertThrows(NoSuchFieldError.class, () -> {
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             cart.addProductToCartByID(id);
         });
         // Assert
@@ -253,7 +254,7 @@ class ShopTest {
         int id = 1;
 
         // Act
-        NoSuchFieldError exception = assertThrows(NoSuchFieldError.class, () -> {
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             cart.removeProductByID(id);
         });
 
@@ -266,29 +267,28 @@ class ShopTest {
 
     /**
      * 2.9. Нужно восстановить тест
-     *
      */
     // boolean Сломанный-Тест() {
-        //          // Assert (Проверка утверждения)
-        //          assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
-        //          // Act (Выполнение)
-        //          cart.addProductToCartByID(2); // 250
-        //          cart.addProductToCartByID(2); // 250
-        //          // Arrange (Подготовка)
-        //          Shop shop = new Shop(getStoreItems());
-        //          Cart cart = new Cart(shop);
-        //      }
-         @Test
-         void testSUM() {
-             // Arrange (Подготовка)
-             Shop shop = new Shop(getStoreItems());
-             Cart cart = new Cart(shop);
-             // Act (Выполнение)
-             cart.addProductToCartByID(2); // 250
-             cart.addProductToCartByID(2); // 250
-             // Assert (Проверка утверждения)
-             assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
-         }
+    //          // Assert (Проверка утверждения)
+    //          assertThat(cart.getTotalPrice()).isEqualTo(cart.getTotalPrice());
+    //          // Act (Выполнение)
+    //          cart.addProductToCartByID(2); // 250
+    //          cart.addProductToCartByID(2); // 250
+    //          // Arrange (Подготовка)
+    //          Shop shop = new Shop(getStoreItems());
+    //          Cart cart = new Cart(shop);
+    //      }
+    @Test
+    void testSUM() {
+        // Arrange (Подготовка)
+        Shop shop = new Shop(getStoreItems());
+        Cart cart = new Cart(shop);
+        // Act (Выполнение)
+        cart.addProductToCartByID(2); // 250
+        cart.addProductToCartByID(2); // 250
+        // Assert (Проверка утверждения)
+        assertThat(cart.getTotalPrice()).isEqualTo(500);
+    }
 
     /**
      * 2.10. Нужно изменить тест по следующим критериям:

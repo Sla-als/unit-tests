@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Cart {
-    List<Product> cartItems = new ArrayList<>(); // Корзина с продуктами
+    public List<Product> cartItems = new ArrayList<>(); // Корзина с продуктами
 
     // При создании корзины нужно передать магазин
     Shop shop;
@@ -45,7 +45,11 @@ public class Cart {
             }
         }
         if (id > shop.getProductsShop().size() || id < 0) {
-            throw new NoSuchFieldError("Не найден продукт с id: " + id);
+            try {
+                throw new NoSuchFieldException("Не найден продукт с id: " + id);
+            } catch (NoSuchFieldException e) {
+                throw new RuntimeException("Не найден продукт с id: " + id);
+            }
         }
         return product;
     }
@@ -97,7 +101,13 @@ public class Cart {
     public void removeProductByID(int id) {
 
         if (!hasContainProductID(id)) {
-            throw new NoSuchFieldError("В корзине не найден продукт с id: " + id);
+            if (!hasContainProductID(id)) {
+                try {
+                    throw new NoSuchFieldException("В корзине не найден продукт с id: " + id);
+                } catch (NoSuchFieldException e) {
+                    throw new RuntimeException("В корзине не найден продукт с id: " + id);
+                }
+            }
         }
 
         // Изменяем кол-во в корзине -1
