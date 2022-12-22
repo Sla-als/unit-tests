@@ -37,15 +37,13 @@ class ShopTest {
     }
 
     private ByteArrayOutputStream output = new ByteArrayOutputStream();
-
-    // private Shop shop;
-    // private Cart cart;
-    //  @BeforeEach
-    //  void setup() {
-    //      shop = new Shop(getStoreItems());
-    //      cart = new Cart(shop);
-    //  }
-
+    private Shop shop;
+    private Cart cart;
+      @BeforeEach
+      void setup() {
+          shop = new Shop(getStoreItems());
+          cart = new Cart(shop);
+      }
 
 /*
             ID | Название  | Цена, р. | Кол-во в магазине, шт.
@@ -72,8 +70,7 @@ class ShopTest {
     @Test
     void priceCartIsCorrectCalculated() {
         // Arrange (Подготовка)
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act (Выполнение)
         cart.addProductToCartByID(1); // 170 +
         cart.addProductToCartByID(2); // 250 +
@@ -91,8 +88,7 @@ class ShopTest {
     @Test
     void priceCartProductsSameTypeIsCorrectCalculated() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act
         cart.addProductToCartByID(1); // 170 +
         cart.addProductToCartByID(1); // 170 +
@@ -113,8 +109,7 @@ class ShopTest {
     @Test
     void whenChangingCartCostRecalculationIsCalled() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act
         cart.addProductToCartByID(1); // 170 +
         cart.addProductToCartByID(2); // 250 +
@@ -135,8 +130,7 @@ class ShopTest {
     @Test
     void quantityProductsStoreChanging() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act
         cart.addProductToCartByID(1); // 1
         cart.addProductToCartByID(1); // 2
@@ -156,8 +150,7 @@ class ShopTest {
     @Test
     void lastProductsDisappearFromStore() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act
         cart.addProductToCartByID(1); // 1
         cart.addProductToCartByID(1); // 2
@@ -192,8 +185,7 @@ class ShopTest {
     @Test
     void deletedProductIsReturnedToShop() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act
         cart.addProductToCartByID(1); // 1
         cart.addProductToCartByID(1); // 2
@@ -227,8 +219,6 @@ class ShopTest {
         // Сначала показать пример в CalculatorTest - expectedIllegalStateExpressionToo - 117
 
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
         int id = i;
         // Act
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
@@ -249,8 +239,6 @@ class ShopTest {
     @Test
     void incorrectProductRemoveCausesException() {
         // Arrange
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
         int id = 1;
 
         // Act
@@ -281,8 +269,7 @@ class ShopTest {
     @Test
     void testSUM() {
         // Arrange (Подготовка)
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
+
         // Act (Выполнение)
         cart.addProductToCartByID(2); // 250
         cart.addProductToCartByID(2); // 250
@@ -303,8 +290,6 @@ class ShopTest {
     @Disabled
     void priceCartIsCorrectCalculatedExt() {
         // Arrange (Подготовка)
-        Shop shop = new Shop(getStoreItems());
-        Cart cart = new Cart(shop);
         // Act (Выполнение)
         cart.addProductToCartByID(1);
         cart.removeProductByID(1);
