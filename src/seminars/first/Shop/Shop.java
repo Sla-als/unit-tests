@@ -1,9 +1,15 @@
 package seminars.first.Shop;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Shop {
     private List<Product> products;
+
+    public Shop(List<Product> products) {
+        this.products = products;
+    }
 
     // Геттеры, сеттеры:
     public List<Product> getProducts() {
@@ -15,14 +21,13 @@ public class Shop {
     }
 
     // Метод должен вернуть отсортированный по возрастанию по цене список продуктов
-    public List<Product> getSortedListProducts() {
-        // ...
-        return null;
+    public List<Product> sortProductsByPrice() {
+        products.sort(Comparator.comparing(Product::getCost));
+        return products;
     }
 
     // Метод должен вернуть самый дорогой продукт
     public Product getMostExpensiveProduct() {
-        // ...
-        return null;
+        return Collections.max(products, Comparator.comparing(Product::getCost));
     }
 }
