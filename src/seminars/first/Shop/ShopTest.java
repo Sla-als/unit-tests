@@ -1,4 +1,4 @@
-package seminars.first.hw;
+package seminars.first.Shop;
 
 public class ShopTest {
     /*
@@ -7,7 +7,3 @@ public class ShopTest {
      3. Проверить, что магазин возвращает верный отсортированный по цене список продуктов
     */
 }
-
-
-
-

@@ -1,3 +1,7 @@
+package seminars.first.Calculator;
+
+import seminars.first.Calculator.Calculator;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class CalculatorTest {
@@ -22,7 +26,7 @@ public class CalculatorTest {
         // Случаи с неправильными аргументами
         // аргумент operator типа char, должен вызывать исключение, если он получает не базовые символы (+-*/)
         // try {
-        //     Calculator.calculation(8, 4, '_');
+        //     seminars.first.Calculator.Calculator.calculation(8, 4, '_');
         // } catch (IllegalStateException e) {
         //     if (!e.getMessage().equals("Unexpected value operator: _")) {
         //         throw new AssertionError("Ошибка в методе");
@@ -54,20 +58,20 @@ public class CalculatorTest {
         // HW1.1: Придумайте и опишите (можно в псевдокоде) функцию извлечения корня и
         // необходимые проверки для него используя граничные случаи
         // assertThatThrownBy(() ->
-        //         Calculator.squareRootExtraction(0, 1, -1)
+        //         seminars.first.Calculator.Calculator.squareRootExtraction(0, 1, -1)
         // ).isInstanceOf(SomeStateException.class);
 
         // HW1.2: Как будет выглядеть проверка для случая деления на ноль? (с использованием AssertJ)
         // assertThatThrownBy(() ->
-        //        Calculator.calculation(5, 0, '/')
+        //        seminars.first.Calculator.Calculator.calculation(5, 0, '/')
         // ).isInstanceOf(ArithmeticException.class);
 
         // HW1.3: Сравните одну и ту же проверку с использованием условий, ассертов, AssertJ
         // в каком случае стандартное сообщение об ошибке будет более информативным?
-        // if (0 != Calculator.calculation(2, 6, '+')) {
+        // if (0 != seminars.first.Calculator.Calculator.calculation(2, 6, '+')) {
         //     throw new AssertionError("Ошибка в методе");
         // }
-        //   assert 0 == Calculator.calculation(2, 6, '+');
-        //    assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(0);
+        //   assert 0 == seminars.first.Calculator.Calculator.calculation(2, 6, '+');
+        //    assertThat(seminars.first.Calculator.Calculator.calculation(2, 6, '+')).isEqualTo(0);
     }
 }

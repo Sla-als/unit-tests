@@ -1,4 +1,4 @@
-package seminars.first.hw;
+package seminars.first.Shop;
 
 public class Product {
     private int cost; // Стоимость продукта

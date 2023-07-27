@@ -1,4 +1,4 @@
-package seminars.first.hw;
+package seminars.first.Shop;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ public class Shop {
 
     // Метод должен вернуть отсортированный по возрастанию по цене список продуктов
     public List<Product> getSortedListProducts() {
+        // ...
         return null;
     }
 
