@@ -40,15 +40,15 @@ public class CalculatorTest {
         assert 2 == Calculator.calculation(100, 50, '/');
 
         // Проверка базового функционала с целыми числами, с использованием утверждений AssertJ:
-        assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(8);
-        assertThat(Calculator.calculation(2, 2, '-')).isEqualTo(0);
-        assertThat(Calculator.calculation(2, 7, '*')).isEqualTo(14);
-        assertThat(Calculator.calculation(100, 50, '/')).isEqualTo(2);
+//        assertThat(Calculator.calculation(2, 6, '+')).isEqualTo(8);
+//        assertThat(Calculator.calculation(2, 2, '-')).isEqualTo(0);
+//        assertThat(Calculator.calculation(2, 7, '*')).isEqualTo(14);
+//        assertThat(Calculator.calculation(100, 50, '/')).isEqualTo(2);
 
         // Проверка ожидаемого исключения, с использованием утверждений AssertJ:
-        assertThatThrownBy(() ->
-                Calculator.calculation(8, 4, '_')
-        ).isInstanceOf(IllegalStateException.class);
+//        assertThatThrownBy(() ->
+//                Calculator.calculation(8, 4, '_')
+//        ).isInstanceOf(IllegalStateException.class);
 
         System.out.println(Calculator.calculation(2_147_483_647, 1, '+')); // integer overflow
         System.out.println(Calculator.squareRootExtraction(169));

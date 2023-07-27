@@ -1,7 +1,7 @@
 package seminars.first.Shop;
 
 public class Product {
-    private int cost; // Стоимость продукта
+    private Integer cost; // Стоимость продукта
     private String title; // Название
 
     // Геттеры, сеттеры:
