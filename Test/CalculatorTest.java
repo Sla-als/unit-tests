@@ -133,7 +133,6 @@ public class CalculatorTest {
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
-
     }
 
     @Test
