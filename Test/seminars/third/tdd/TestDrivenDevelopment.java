@@ -15,11 +15,23 @@ public class TestDrivenDevelopment {
         assertThat(mood).isEqualTo("SAD");
     }
 
-    @Test
-    void testHappyMoodAnalysis() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyseMood("Это веселое сообщение");
-
-        assertThat(mood).isEqualTo("HAPPY");
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Test
+//    void testHappyMoodAnalysis() {
+//        MoodAnalyser moodAnalyser = new MoodAnalyser();
+//        String mood = moodAnalyser.analyseMood("Это веселое сообщение");
+//
+//        assertThat(mood).isEqualTo("HAPPY");
+//    }
