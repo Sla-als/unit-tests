@@ -1,15 +1,13 @@
 package seminars.five;
 
-import net.bytebuddy.utility.dispatcher.JavaDispatcher;
 import org.junit.jupiter.api.Test;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import seminars.five.dbase.UserRepository;
 import seminars.five.number.MaxNumberModule;
 import seminars.five.number.RandomNumberModule;
+import seminars.five.order.OrderService;
+import seminars.five.order.PaymentService;
+import seminars.five.user.UserRepository;
+import seminars.five.user.UserService;
 
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,40 +37,43 @@ class MainTest {
 
 
 
-    // Integration test
+
+
+
+
+
+
+
+
+    //5.2.
     @Test
-    public void testFindMaxInGeneratedNumbers() {
-        RandomNumberModule generator = new RandomNumberModule();
-        MaxNumberModule finder = new MaxNumberModule();
+    public void testGetUserName() {
+        UserRepository userRepository = new UserRepository();
+        UserService userService = new UserService(userRepository);
 
-        // Генерируем массив случайных чисел
-        int[] numbers = generator.generateRandomNumbers(10);
+        String result = userService.getUserName(1);
 
-        // Находим максимальное число в массиве
-        int maxNumber = finder.findMaxNumber(numbers);
-
-        // Сортируем массив, чтобы легко определить максимальное число
-        Arrays.sort(numbers);
-
-        // Проверяем, что найденное максимальное число равно максимальному числу в отсортированном массиве
-        assertEquals(numbers[numbers.length - 1], maxNumber);
+        assertEquals("User 1", result);
     }
 
-    // Создаем экземпляр Testcontainers для PostgreSQL.
-    // Обратите внимание, что мы используем версию 13.2.
-    @Container
-    public PostgreSQLContainer postgres= new PostgreSQLContainer("postgres:13.2");
 
+
+
+
+
+
+
+
+    //5.3.
     @Test
-    public void testAddAndRetrieveUser() {
-        // Создаем UserRepository, которое будет взаимодействовать с нашей базой данных.
-        UserRepository userRepository = new UserRepository(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword());
+    public void testPlaceOrder() {
+        PaymentService paymentService = new PaymentService();
+        OrderService orderService = new OrderService(paymentService);
 
-        // ЗДЕСЬ ВАШ КОД
-        // 1. Создайте нового пользователя.
-        // 2. Добавьте этого пользователя в базу данных с помощью UserRepository.
-        // 3. Извлеките этого пользователя из базы данных с помощью UserRepository.
-        // 4. Проверьте, что извлеченный пользователь соответствует ожидаемому.
+        boolean result = orderService.placeOrder("order1", 100.0);
+
+        assertTrue(result);
     }
+
 
 }
