@@ -10,31 +10,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*; // Импортируем классы библиотеки assertJ
 
 public class Main {
-
-    // Типы ошибок. Синтаксические
-//    public static void main(String[] args) {
-//        System.out.println("Hello world!")
-//    }
-
-    // Типы ошибок. ?
-//    public static void main(String[] args) {
-//        compareNumbers(2, 2); // Вызывается метод сравнения двух чисел
-//    }
-//    private static void compareNumbers(int a, int b) {
-//        if (a > b) {
-//            System.out.printf("%d more than %d", a, b);
-//        }
-//        if (a <= b) {  // Допущена ошибка -знак <= вместо <
-//            System.out.printf("%d less than %d", a, b);
-//        }
-//    }
-
-    // Типы ошибок. ?
-//  public static void main(String[] args) {
-//      int a = 10, b = 0;
-//      System.out.printf("Result: %d", a / b);
-//  }
-
     public static void main(String[] args) {
         // assertConditionA();
 
@@ -76,7 +51,6 @@ public class Main {
     // Ariane V - https://habr.com/ru/company/pvs-studio/blog/306748/
     // sum(2_147_483_647, 1) возвращает "-2147483648"
     public static int sum(int a, int b) {
-        assert (Integer.MAX_VALUE - a >= b) : "Значение выражения вышло за пределы переменной";
         return a + b;
     }
 
