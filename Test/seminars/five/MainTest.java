@@ -9,6 +9,8 @@ import seminars.five.user.UserRepository;
 import seminars.five.user.UserService;
 
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -35,14 +37,24 @@ class MainTest {
         assertEquals(5, finder.findMaxNumber(numbers));
     }
 
+    @Test
+    public void testFindMaxInGeneratedNumbers() {
+        RandomNumberModule generator = new RandomNumberModule();
+        MaxNumberModule finder = new MaxNumberModule();
 
+        // Генерируем массив случайных чисел
+        int[] numbers = generator.generateRandomNumbers(10);
 
+        // Находим максимальное число в массиве
+        int maxNumber = finder.findMaxNumber(numbers);
 
+        // Сортируем массив, чтобы легко определить максимальное число
+        Arrays.sort(numbers);
 
+        // Проверяем, что найденное максимальное число равно максимальному числу в отсортированном массиве
+        assertEquals(numbers[numbers.length - 1], maxNumber);
 
-
-
-
+    }
 
 
     //5.2.
@@ -55,13 +67,6 @@ class MainTest {
 
         assertEquals("User 1", result);
     }
-
-
-
-
-
-
-
 
 
     //5.3.
