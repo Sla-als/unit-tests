@@ -1,13 +1,10 @@
 package seminars.fourth;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 class MainTest {
 
@@ -28,30 +25,6 @@ class MainTest {
         verify(mockedList).clear();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * 4.1. Создать мок-объект Iterator, настроить поведение так,
      * чтобы за два вызова next() Iterator вернул два слова  “Hello World”,
@@ -61,11 +34,9 @@ class MainTest {
       public void iteratorWillReturnHelloWorld() {
           // Arrange
           Iterator iteratorMock = mock(Iterator.class);
-          when(iteratorMock.next()).thenReturn("Hello").thenReturn("World");
+          //when(iteratorMock.next()).thenReturn("Hello")...;
           // Act
-          String result = iteratorMock.next() + " " + iteratorMock.next();
-          // Assert
-          assertEquals("Hello World", result);
+          // ...
       }
 
 }
