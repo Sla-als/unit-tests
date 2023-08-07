@@ -7,26 +7,3 @@ public class MoodAnalyser {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public String analyseMood2(String message) {
-//        if (message.contains(("грустное"))) {
-//            return "SAD";
-//        } else {
-//            return "HAPPY";
-//        }
-//    }
